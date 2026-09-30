@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunset Chill Café Đà Lạt | Cà phê rang mộc, không gian chill</title>
+    <meta
+      name="description"
+      content="Sunset Chill Café tại 123 Hoàng Diệu, Đà Lạt. Cà phê rang mộc, bạc sỉu, kem muối, bánh ngọt. Mở cửa 7h–22h. Đặt bàn trực tiếp trên trang."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Sunset Chill Café" />
+    <meta name="geo.region" content="VN-DL" />
+    <meta name="geo.placename" content="Đà Lạt" />
+    <link rel="canonical" href="https://sunsetchill.cafe/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" hreflang="vi" href="https://sunsetchill.cafe/" />
+    <meta name="theme-color" content="#2c1a0e" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Sunset Chill Café" />
+    <meta
+      property="og:title"
+      content="Sunset Chill Café Đà Lạt — Nơi để bạn chậm lại"
+    />
+    <meta
+      property="og:description"
+      content="Quán cà phê ấm cúng trên Hoàng Diệu: rang mộc mỗi sáng, menu bạc sỉu – kem muối – cold brew, bàn cửa sổ view sương."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta
+      property="og:image:alt"
+      content="Không gian quán cà phê Sunset Chill tại Đà Lạt"
+    />
+    <!-- FIX: og:url nên là URL tuyệt đối -->
+    <meta property="og:url" content="https://sunsetchill.cafe/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sunset Chill Café Đà Lạt" />
+    <meta
+      name="twitter:description"
+      content="Cà phê rang mộc, không gian gỗ ấm, mở cửa 7h–22h tại Hoàng Diệu, Đà Lạt."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80"
+      fetchpriority="high"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CafeOrCoffeeShop",
+        "name": "Sunset Chill Café",
+        "alternateName": "Sunset Chill",
+        "description": "Quán cà phê rang mộc tại Đà Lạt, không gian ấm, menu cà phê – trà – bánh.",
+        "url": "https://sunsetchill.cafe/",
+        "telephone": "+84-394-728-499",
+        "email": "hello@sunsetchill.cafe",
+        "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200",
+        "priceRange": "15.000đ - 45.000đ",
+        "servesCuisine": ["Cà phê", "Trà", "Bánh"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Đường Hoàng Diệu, Phường 5",
+          "addressLocality": "Đà Lạt",
+          "addressRegion": "Lâm Đồng",
+          "addressCountry": "VN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 11.9404,
+          "longitude": 108.4583
+        },
+        "hasMap": "https://www.openstreetmap.org/?mlat=11.9404&mlon=108.4583#map=16/11.9404/108.4583",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "07:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday", "Sunday"],
+            "opens": "07:00",
+            "closes": "23:00"
+          }
+        ],
+        "menu": "https://sunsetchill.cafe/#menu",
+        "hasMenu": {
+          "@type": "Menu",
+          "name": "Menu Sunset Chill Café",
+          "hasMenuSection": [
+            {
+              "@type": "MenuSection",
+              "name": "Cà phê",
+              "hasMenuItem": [
+                {
+                  "@type": "MenuItem",
+                  "name": "Đen đá không đường",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "30000",
+                    "priceCurrency": "VND"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Bạc sỉu",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "35000",
+                    "priceCurrency": "VND"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Cà phê kem muối",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "38000",
+                    "priceCurrency": "VND"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Cold brew cam bergamot",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "45000",
+                    "priceCurrency": "VND"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "MenuSection",
+              "name": "Trà và nước",
+              "hasMenuItem": [
+                {
+                  "@type": "MenuItem",
+                  "name": "Trà đào cam sả",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "28000",
+                    "priceCurrency": "VND"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Matcha latte",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "38000",
+                    "priceCurrency": "VND"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
+
+    <header class="site-header">
+      <a href="#hero" class="logo">Sunset Chill</a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Mở menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span aria-hidden="true"></span><span aria-hidden="true"></span
+        ><span aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
+        <a href="#gioi-thieu" class="nav-link">Giới thiệu</a>
+        <a href="#mon-noi-bat" class="nav-link">Món nổi bật</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#khong-gian" class="nav-link">Không gian</a>
+        <a href="#dat-ban" class="nav-link">Đặt bàn</a>
+        <a href="#dia-chi" class="nav-link">Địa chỉ</a>
+      </nav>
+      <button class="cart-btn" type="button" aria-label="Giỏ hàng">
+        Giỏ hàng
+        <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+      </button>
+    </header>
+
+    <aside
+      class="cart-drawer"
+      id="cart-drawer"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cart-drawer-title"
+    >
+      <div class="cart-drawer-head">
+        <p class="cart-title" id="cart-drawer-title">Giỏ hàng</p>
+        <button class="cart-close" type="button" aria-label="Đóng giỏ hàng">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <p class="cart-note">
+        Đặt món tại chỗ — lưu trên trình duyệt của bạn, không cần tài khoản.
+      </p>
+      <ul class="cart-items" id="cart-items"></ul>
+      <div class="cart-footer">
+        <p class="cart-total">Tổng: <strong id="cart-total">0đ</strong></p>
+        <button class="btn" type="button" id="cart-checkout">
+          Xác nhận đơn
+        </button>
+        <button class="btn btn-ghost" type="button" id="cart-clear">
+          Xóa giỏ
+        </button>
+      </div>
+    </aside>
+    <div class="cart-overlay" id="cart-overlay" hidden aria-hidden="true"></div>
+
+    <main id="noi-dung">
+      <section id="hero" aria-label="Giới thiệu quán">
+        <img
+          class="hero-bg"
+          src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80"
+          alt="Khách ngồi trong không gian ấm của Sunset Chill Café Đà Lạt"
+          width="1600"
+          height="900"
+          fetchpriority="high"
+        />
+        <div class="hero-content">
+          <p class="hero-tag">Cà phê Đà Lạt · Rang mỗi sáng</p>
+          <h1>Sunset Chill Café</h1>
+          <p class="hero-desc">
+            Nơi để bạn chậm lại và tận hưởng — góc nhỏ ấm, nhạc nhẹ, ly cà phê
+            vừa đủ đắng trên đường Hoàng Diệu, Đà Lạt.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn">Xem menu</a>
+            <a href="#dat-ban" class="btn btn-outline">Đặt bàn</a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="gioi-thieu"
+        class="section-card"
+        aria-labelledby="gioi-thieu-heading"
+      >
+        <div class="gioi-thieu-content">
+          <div class="gioi-thieu-text">
+            <p class="eyebrow">Câu chuyện</p>
+            <h2 id="gioi-thieu-heading">Một góc nhỏ để thở</h2>
+            <p>
+              Sunset Chill ra đời từ một góc yên tĩnh trên Hoàng Diệu — nơi
+              người ta có thể ngồi hàng giờ mà không cảm thấy vội.
+            </p>
+            <p>
+              Chúng mình không chỉ bán cà phê. Chúng mình giữ những khoảnh khắc
+              bạn thở phào sau một ngày dài: một mình với sách, hay cùng bạn bè
+              cười thật to.
+            </p>
+            <p>
+              Hạt cà phê được rang mộc, pha từng ly khi bạn gọi. Bánh ra lò buổi
+              sáng. Không gian gỗ, ánh đèn vàng, view sương Đà Lạt lúc chiều.
+            </p>
+            <a
+              href="https://www.facebook.com/sunsetchillcoffee/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+              >Trang Facebook</a
+            >
+          </div>
+          <div class="gioi-thieu-anh">
+            <img
+              src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=900&q=80"
+              alt="Barista pha cà phê tại quầy Sunset Chill Café"
+              width="900"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="mon-noi-bat"
+        class="section-card"
+        aria-labelledby="mon-noi-bat-heading"
+      >
+        <h2 class="section-title" id="mon-noi-bat-heading">
+          Món nên thử tại Sunset Chill
+        </h2>
+        <p class="section-desc">
+          Gợi ý cho lần ghé quán đầu tiên ở Đà Lạt — thêm vào giỏ để nhớ khi gọi
+          tại quầy.
+        </p>
+        <div class="product-grid" id="product-grid">
+          <article class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=700&q=80"
+              alt="Ly bạc sỉu đá của Sunset Chill Café"
+              width="700"
+              height="466"
+              loading="lazy"
+            />
+            <div class="product-body">
+              <h3>Bạc sỉu</h3>
+              <p>
+                Sữa đặc, espresso nhẹ, đá viên — vị quen của Đà Lạt buổi sáng.
+              </p>
+              <div class="product-meta">
+                <strong>35.000đ</strong>
+                <button
+                  class="btn"
+                  type="button"
+                  data-add="bac-siu"
+                  data-name="Bạc sỉu"
+                  data-price="35000"
+                >
+                  Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=700&q=80"
+              alt="Cà phê kem muối tại Sunset Chill Café"
+              width="700"
+              height="466"
+              loading="lazy"
+            />
+            <div class="product-body">
+              <h3>Cà phê kem muối</h3>
+              <p>Espresso đậm, kem muối béo mặn, lớp foam dày.</p>
+              <div class="product-meta">
+                <strong>38.000đ</strong>
+                <button
+                  class="btn"
+                  type="button"
+                  data-add="kem-muoi"
+                  data-name="Cà phê kem muối"
+                  data-price="38000"
+                >
+                  Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=700&q=80"
+              alt="Cold brew cam bergamot của Sunset Chill Café"
+              width="700"
+              height="466"
+              loading="lazy"
+            />
+            <div class="product-body">
+              <h3>Cold brew cam</h3>
+              <p>Ủ lạnh 16 giờ, hint bergamot, uống chậm buổi chiều.</p>
+              <div class="product-meta">
+                <strong>45.000đ</strong>
+                <button
+                  class="btn"
+                  type="button"
+                  data-add="cold-brew"
+                  data-name="Cold brew cam"
+                  data-price="45000"
+                >
+                  Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="menu"
+        class="section-card section-dark"
+        aria-labelledby="menu-heading"
+      >
+        <h2 class="section-title" id="menu-heading">
+          Menu cà phê, trà và đồ ăn
+        </h2>
+        <p class="section-desc">Pha tươi mỗi ly tại Đà Lạt · Giá đã gồm VAT</p>
+        <div class="menu-filters" aria-label="Lọc danh mục menu">
+          <button
+            class="filter-btn is-active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            Tất cả
+          </button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="cafe"
+            aria-pressed="false"
+          >
+            Cà phê
+          </button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="tra"
+            aria-pressed="false"
+          >
+            Trà &amp; nước
+          </button>
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter="an"
+            aria-pressed="false"
+          >
+            Đồ ăn
+          </button>
+        </div>
+        <div class="menu-grid">
+          <div class="danh-muc" data-category="cafe">
+            <h3>Cà phê</h3>
+            <ul class="mon-list">
+              <li>
+                <span class="mon-ten">Đen đá không đường</span
+                ><span class="mon-gia">30.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Bạc sỉu</span
+                ><span class="mon-gia">35.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Cà phê kem muối</span
+                ><span class="mon-gia">38.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Cacao nóng / đá</span
+                ><span class="mon-gia">32.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Cold brew cam bergamot</span
+                ><span class="mon-gia">45.000đ</span>
+              </li>
+            </ul>
+          </div>
+          <div class="danh-muc" data-category="tra">
+            <h3>Trà &amp; nước</h3>
+            <ul class="mon-list">
+              <li>
+                <span class="mon-ten">Trà sữa trân châu đường đen</span
+                ><span class="mon-gia">32.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Trà đào cam sả</span
+                ><span class="mon-gia">28.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Matcha latte</span
+                ><span class="mon-gia">38.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Trà dâu tằm</span
+                ><span class="mon-gia">25.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Nước ngọt / nước suối</span
+                ><span class="mon-gia">15.000đ</span>
+              </li>
+            </ul>
+          </div>
+          <div class="danh-muc" data-category="an">
+            <h3>Đồ ăn</h3>
+            <ul class="mon-list">
+              <li>
+                <span class="mon-ten">Bánh mì heo quay</span
+                ><span class="mon-gia">35.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Mì xào bò</span
+                ><span class="mon-gia">45.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Sandwich trứng &amp; bơ</span
+                ><span class="mon-gia">32.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Bánh croissant bơ</span
+                ><span class="mon-gia">28.000đ</span>
+              </li>
+              <li>
+                <span class="mon-ten">Tiramisu ly</span
+                ><span class="mon-gia">42.000đ</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="khong-gian"
+        class="section-card"
+        aria-labelledby="khong-gian-heading"
+      >
+        <h2 class="section-title" id="khong-gian-heading">
+          Không gian quán cà phê Đà Lạt
+        </h2>
+        <p class="section-desc">
+          Gỗ ấm, cửa sổ lớn, góc làm việc yên và bàn nhóm ngoài sân.
+        </p>
+        <div class="gallery-grid">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80"
+              alt="Quầy bar và máy pha cà phê Sunset Chill"
+              width="800"
+              height="533"
+              loading="lazy"
+            />
+            <figcaption>Quầy pha</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80"
+              alt="Ly cà phê mới pha trên bàn gỗ"
+              width="800"
+              height="533"
+              loading="lazy"
+            />
+            <figcaption>Ly vừa rót</figcaption>
+          </figure>
+          <figure>
+            <!-- FIX: 2 lần trước đều tự đoán ID ảnh Unsplash từ trí nhớ nên ảnh vỡ hoặc lạc chủ đề
+                 (Picsum không chọn ảnh theo nội dung, chỉ là placeholder ngẫu nhiên).
+                 Lần này tra trực tiếp trang Unsplash, lấy đúng ID ảnh "armchair gỗ cạnh cây xanh",
+                 giấy phép Unsplash License (miễn phí, được dùng thương mại không cần ghi công). -->
+            <img
+              src="https://images.unsplash.com/photo-1484935494280-c21fdf67d5cc?w=800&q=80"
+              alt="Góc ngồi đọc sách trong quán Sunset Chill"
+              width="800"
+              height="533"
+              loading="lazy"
+            />
+            <figcaption>Góc đọc sách</figcaption>
+          </figure>
+          <figure>
+            <!-- FIX: tương tự — ảnh bàn/ghế cạnh cửa sổ trong quán cà phê, giấy phép Unsplash License -->
+            <img
+              src="https://images.unsplash.com/photo-1654200828752-0f310924e1b3?w=800&q=80"
+              alt="Khách ngồi bàn cửa sổ tại Sunset Chill Café"
+              width="800"
+              height="533"
+              loading="lazy"
+            />
+            <figcaption>Bàn cửa sổ</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        id="cam-nhan"
+        class="section-card section-muted"
+        aria-labelledby="cam-nhan-heading"
+      >
+        <h2 class="section-title" id="cam-nhan-heading">
+          Khách nói gì về quán
+        </h2>
+        <div class="quote-grid">
+          <blockquote>
+            <p>
+              “Ngồi cả buổi chiều mà không bị giục. Bạc sỉu béo vừa, nhạc vừa đủ
+              nhỏ để làm việc.”
+            </p>
+            <cite>— Lan, làm remote từ Đà Lạt</cite>
+          </blockquote>
+          <blockquote>
+            <p>
+              “Kem muối mặn ngọt đúng gu. Tiramisu không quá ngọt, hợp sau mưa.”
+            </p>
+            <cite>— Minh &amp; Hà, cuối tuần</cite>
+          </blockquote>
+          <blockquote>
+            <p>
+              “Đặt bàn nhóm 6 người, nhân viên xếp bàn cửa sổ. View sương chiều
+              rất chill.”
+            </p>
+            <cite>— Nhóm bạn khoa Xây dựng</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section
+        id="dat-ban"
+        class="section-card"
+        aria-labelledby="dat-ban-heading"
+      >
+        <div class="form-layout">
+          <div>
+            <p class="eyebrow">Giữ chỗ</p>
+            <h2 id="dat-ban-heading">Đặt bàn Sunset Chill Café</h2>
+            <p>
+              Điền thông tin bên dưới để giữ chỗ trước khi đến quán. Chúng tôi
+              sẽ gọi lại để xác nhận. Không thu phí đặt bàn.
+            </p>
+            <ul class="form-tips">
+              <li>Nhóm từ 6 người nên đặt trước ít nhất 2 giờ.</li>
+              <li>Cuối tuần khung 17h–20h thường kín bàn cửa sổ.</li>
+              <li>Mang thú cưng: sân ngoài, không vào khu làm việc.</li>
+            </ul>
+          </div>
+          <form id="booking-form" novalidate aria-labelledby="dat-ban-heading">
+            <label>
+              Họ tên
+              <input
+                type="text"
+                name="name"
+                required
+                minlength="2"
+                maxlength="60"
+                autocomplete="name"
+                placeholder="Nguyễn Minh Huy"
+              />
+            </label>
+            <label>
+              Số điện thoại
+              <input
+                type="tel"
+                name="phone"
+                required
+                pattern="0[0-9]{9}"
+                placeholder="0394728499"
+                inputmode="numeric"
+                autocomplete="tel"
+              />
+            </label>
+            <div class="form-row">
+              <label>
+                Ngày
+                <!-- FIX: thêm min bằng ngày hiện tại (set qua JS ở cafe.js) để chặn chọn ngày quá khứ -->
+                <input type="date" name="date" id="booking-date" required />
+              </label>
+              <label>
+                Giờ
+                <input
+                  type="time"
+                  name="time"
+                  required
+                  min="07:00"
+                  max="22:00"
+                />
+              </label>
+            </div>
+            <label>
+              Số khách
+              <select name="guests" required>
+                <option value="1">1 người</option>
+                <option value="2" selected>2 người</option>
+                <option value="3">3 người</option>
+                <option value="4">4 người</option>
+                <option value="5">5 người</option>
+                <option value="6">6+ người (gọi quán xác nhận)</option>
+              </select>
+            </label>
+            <label>
+              Ghi chú
+              <textarea
+                name="note"
+                maxlength="300"
+                rows="3"
+                placeholder="Sinh nhật, cần ổ cắm, bàn ngoài sân..."
+              ></textarea>
+            </label>
+            <p
+              class="form-error"
+              id="form-error"
+              role="alert"
+              aria-live="assertive"
+              hidden
+            ></p>
+            <p
+              class="form-success"
+              id="form-success"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+            <button class="btn" type="submit">Lưu đặt bàn</button>
+          </form>
+        </div>
+      </section>
+
+      <section
+        id="dia-chi"
+        class="section-card"
+        aria-labelledby="dia-chi-heading"
+      >
+        <h2 class="section-title" id="dia-chi-heading">
+          Địa chỉ Sunset Chill Café Đà Lạt
+        </h2>
+        <div class="dia-chi-content">
+          <address class="thong-tin">
+            <div class="thong-tin-item">
+              <span class="thong-tin-icon" aria-hidden="true">📍</span>
+              <div>
+                <strong>Địa chỉ</strong>
+                <p>123 Đường Hoàng Diệu, Phường 5, Đà Lạt, Lâm Đồng</p>
+              </div>
+            </div>
+            <div class="thong-tin-item">
+              <span class="thong-tin-icon" aria-hidden="true">🕐</span>
+              <div>
+                <strong>Giờ mở cửa</strong>
+                <p>Thứ 2 – Thứ 6: 7:00 – 22:00</p>
+                <p>Thứ 7 – Chủ nhật: 7:00 – 23:00</p>
+              </div>
+            </div>
+            <div class="thong-tin-item">
+              <span class="thong-tin-icon" aria-hidden="true">📞</span>
+              <div>
+                <strong>Liên hệ</strong>
+                <p><a href="tel:+84394728499">0394 728 499</a></p>
+                <p>
+                  <a href="mailto:hello@sunsetchill.cafe"
+                    >hello@sunsetchill.cafe</a
+                  >
+                </p>
+              </div>
+            </div>
+          </address>
+          <figure class="dia-chi-map">
+            <img
+              src="https://cms.vietnamcoracle.com/wp-content/uploads/2022/02/20220126_170316-copy-blog-scaled.jpg"
+              alt="Góc phố Đà Lạt gần Sunset Chill Café, 123 Hoàng Diệu"
+              width="900"
+              height="560"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-logo">Sunset Chill Café</p>
+        <p class="footer-slogan">
+          Quán cà phê Đà Lạt — nơi để bạn chậm lại và tận hưởng
+        </p>
+        <nav class="footer-nav" aria-label="Liên kết chân trang">
+          <a href="#menu">Menu</a>
+          <a href="#dat-ban">Đặt bàn</a>
+          <a href="#dia-chi">Địa chỉ</a>
+        </nav>
+        <small
+          >© 2026 Sunset Chill Café, Hoàng Diệu, Đà Lạt. Giao diện tĩnh — Made
+          with care by HuyGa.</small
+        >
+      </div>
+    </footer>
+
+    <div
+      class="toast"
+      id="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <script src="cafe.js" defer></script>
+  </body>
+</html>
