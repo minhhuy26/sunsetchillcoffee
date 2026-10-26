@@ -20,6 +20,7 @@ function saveCart(cart) {
 
 function toast(msg) {
   const el = $("#toast");
+  if (!el) return;
   el.textContent = msg;
   el.classList.add("is-show");
   clearTimeout(toast._t);
@@ -35,12 +36,16 @@ function cartSum(cart) {
 }
 
 function renderCart() {
-  const cart = loadCart();
-  $("#cart-count").textContent = cartQty(cart);
+  const countEl = $("#cart-count");
   const list = $("#cart-items");
+  const totalEl = $("#cart-total");
+  if (!countEl || !list || !totalEl) return;
+
+  const cart = loadCart();
+  countEl.textContent = cartQty(cart);
   if (!cart.length) {
     list.innerHTML = `<li class="empty-cart">Giỏ còn trống. Thêm món nổi bật phía trên nhé.</li>`;
-    $("#cart-total").textContent = money(0);
+    totalEl.textContent = money(0);
     return;
   }
   list.innerHTML = cart
@@ -60,7 +65,7 @@ function renderCart() {
     `,
     )
     .join("");
-  $("#cart-total").textContent = money(cartSum(cart));
+  totalEl.textContent = money(cartSum(cart));
 }
 
 function addToCart(btn) {
@@ -95,76 +100,123 @@ function changeQty(id, delta) {
   renderCart();
 }
 
-// FIX: khóa scroll nền + trả focus về nút mở khi đóng drawer (a11y + UX mobile)
-function setCartOpen(open) {
-  $("#cart-drawer").classList.toggle("is-open", open);
-  $("#cart-drawer").setAttribute("aria-hidden", String(!open));
-  $("#cart-overlay").hidden = !open;
-  document.body.classList.toggle("no-scroll", open || isNavOpen());
-  if (open) {
-    $(".cart-close").focus();
-  } else {
-    $(".cart-btn").focus();
-  }
-}
-
 function isNavOpen() {
   const nav = $("#main-nav");
   return nav ? nav.classList.contains("is-open") : false;
 }
 
+function setCartOpen(open) {
+  const drawer = $("#cart-drawer");
+  const overlay = $("#cart-overlay");
+  if (!drawer) return;
+
+  // Nếu mở giỏ hàng thì đóng menu mobile nếu đang mở
+  if (open && isNavOpen()) {
+    const nav = $("#main-nav");
+    const toggle = $(".nav-toggle");
+    if (nav) nav.classList.remove("is-open");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+  }
+
+  drawer.classList.toggle("is-open", open);
+  drawer.setAttribute("aria-hidden", String(!open));
+  if (overlay) overlay.hidden = !open;
+  document.body.classList.toggle("no-scroll", open || isNavOpen());
+
+  if (open) {
+    const closeBtn = $(".cart-close");
+    if (closeBtn) closeBtn.focus();
+  } else {
+    const cartBtn = $(".cart-btn");
+    if (cartBtn) cartBtn.focus();
+  }
+}
+
 function setupNav() {
   const toggle = $(".nav-toggle");
   const nav = $("#main-nav");
+  if (!toggle || !nav) return;
+
   toggle.addEventListener("click", () => {
+    // Đóng giỏ hàng nếu đang mở trước khi mở menu mobile
+    const drawer = $("#cart-drawer");
+    if (drawer && drawer.classList.contains("is-open")) {
+      setCartOpen(false);
+    }
+
     const open = !nav.classList.contains("is-open");
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
-    // FIX: khóa scroll nền khi menu mobile mở, trừ khi cart cũng đang mở
     document.body.classList.toggle(
       "no-scroll",
-      open || $("#cart-drawer").classList.contains("is-open"),
+      open || (drawer ? drawer.classList.contains("is-open") : false),
     );
   });
+
   $$(".nav-link").forEach((a) => {
     a.addEventListener("click", () => {
       nav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
+      const drawer = $("#cart-drawer");
       document.body.classList.toggle(
         "no-scroll",
-        $("#cart-drawer").classList.contains("is-open"),
+        drawer ? drawer.classList.contains("is-open") : false,
       );
     });
   });
 
   const links = $$(".nav-link");
   const sections = links
-    .map((a) => document.querySelector(a.getAttribute("href")))
+    .map((a) => {
+      const href = a.getAttribute("href");
+      if (href && href.startsWith("#") && href.length > 1) {
+        return document.querySelector(href);
+      }
+      return null;
+    })
     .filter(Boolean);
 
+  if (!sections.length) return;
+
   const onScroll = () => {
-    const y = window.scrollY + 90;
+    const y = window.scrollY + 130;
+    // Kiểm tra nếu đang ở đỉnh trang (Hero), không active mục nào
+    if (sections[0] && y < sections[0].offsetTop) {
+      links.forEach((a) => a.classList.remove("is-active"));
+      return;
+    }
+
     let current = sections[0];
     sections.forEach((s) => {
       if (s.offsetTop <= y) current = s;
     });
+
     links.forEach((a) => {
+      const href = a.getAttribute("href");
       a.classList.toggle(
         "is-active",
-        a.getAttribute("href") === `#${current.id}`,
+        Boolean(current && href === `#${current.id}`),
       );
     });
   };
+
   window.addEventListener("scroll", onScroll, { passive: true });
-  // FIX: chạy 1 lần ngay khi tải trang để nav highlight đúng mục ngay từ đầu
   onScroll();
 }
 
 function setupMenuFilter() {
-  $$(".filter-btn").forEach((btn) => {
+  const filterBtns = $$(".filter-btn");
+  if (!filterBtns.length) return;
+
+  filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      $$(".filter-btn").forEach((b) => b.classList.remove("is-active"));
+      filterBtns.forEach((b) => {
+        b.classList.remove("is-active");
+        b.setAttribute("aria-pressed", "false");
+      });
       btn.classList.add("is-active");
+      btn.setAttribute("aria-pressed", "true");
+
       const f = btn.dataset.filter;
       $$(".danh-muc").forEach((box) => {
         box.classList.toggle(
@@ -176,26 +228,34 @@ function setupMenuFilter() {
   });
 }
 
-// FIX: khai báo khung giờ mở cửa 1 chỗ, dùng lại cho cả input min/max và validate JS
 const OPEN_TIME = "07:00";
 const CLOSE_TIME = "22:00";
 
 function setupBooking() {
   const form = $("#booking-form");
+  if (!form) return;
+
   const dateInput = form.date;
-  const today = new Date().toISOString().slice(0, 10);
-  dateInput.min = today;
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const today = `${year}-${month}-${day}`;
+
+  if (dateInput) {
+    dateInput.min = today;
+  }
 
   const saved = localStorage.getItem(BOOKING_KEY);
   if (saved) {
     try {
       const b = JSON.parse(saved);
-      form.name.value = b.name || "";
-      form.phone.value = b.phone || "";
-      form.date.value = b.date || "";
-      form.time.value = b.time || "";
-      form.guests.value = b.guests || "2";
-      form.note.value = b.note || "";
+      if (form.name) form.name.value = b.name || "";
+      if (form.phone) form.phone.value = b.phone || "";
+      if (form.date) form.date.value = b.date || "";
+      if (form.time) form.time.value = b.time || "";
+      if (form.guests) form.guests.value = b.guests || "2";
+      if (form.note) form.note.value = b.note || "";
     } catch {
       /* ignore */
     }
@@ -205,41 +265,64 @@ function setupBooking() {
     e.preventDefault();
     const err = $("#form-error");
     const ok = $("#form-success");
-    err.hidden = true;
-    ok.hidden = true;
+    if (err) err.hidden = true;
+    if (ok) ok.hidden = true;
 
     const name = form.name.value.trim();
-    const phone = form.phone.value.trim();
+    // Chuẩn hóa số điện thoại: loại bỏ dấu cách, gạch nối, chấm
+    const phone = form.phone.value.replace(/[\s.-]/g, "");
     const date = form.date.value;
     const time = form.time.value;
 
     if (name.length < 2) {
-      err.textContent = "Nhập họ tên (tối thiểu 2 ký tự).";
-      err.hidden = false;
+      if (err) {
+        err.textContent = "Nhập họ tên (tối thiểu 2 ký tự).";
+        err.hidden = false;
+      }
       return;
     }
     if (!/^0[0-9]{9}$/.test(phone)) {
-      err.textContent = "Số điện thoại phải gồm 10 số, bắt đầu bằng 0.";
-      err.hidden = false;
+      if (err) {
+        err.textContent = "Số điện thoại phải gồm 10 chữ số, bắt đầu bằng số 0.";
+        err.hidden = false;
+      }
       return;
     }
     if (!date || date < today) {
-      err.textContent = "Chọn ngày từ hôm nay trở đi.";
-      err.hidden = false;
+      if (err) {
+        err.textContent = "Chọn ngày từ hôm nay trở đi.";
+        err.hidden = false;
+      }
       return;
     }
-    // FIX: trước đây chỉ kiểm tra time có được chọn hay không, không kiểm tra
-    // có nằm trong khung giờ mở cửa (07:00–22:00) không — thuộc tính min/max
-    // trên <input type="time"> chỉ là gợi ý UI, không chặn được hết mọi trường hợp.
     if (!time) {
-      err.textContent = "Chọn giờ đến quán.";
-      err.hidden = false;
+      if (err) {
+        err.textContent = "Chọn giờ đến quán.";
+        err.hidden = false;
+      }
       return;
     }
     if (time < OPEN_TIME || time > CLOSE_TIME) {
-      err.textContent = `Quán chỉ nhận đặt bàn từ ${OPEN_TIME} đến ${CLOSE_TIME}.`;
-      err.hidden = false;
+      if (err) {
+        err.textContent = `Quán chỉ nhận đặt bàn từ ${OPEN_TIME} đến ${CLOSE_TIME}.`;
+        err.hidden = false;
+      }
       return;
+    }
+
+    // Nếu đặt bàn trong ngày hôm nay, kiểm tra giờ không được trong quá khứ
+    if (date === today) {
+      const currentHours = String(now.getHours()).padStart(2, "0");
+      const currentMinutes = String(now.getMinutes()).padStart(2, "0");
+      const currentTime = `${currentHours}:${currentMinutes}`;
+      if (time <= currentTime) {
+        if (err) {
+          err.textContent =
+            "Giờ đặt bàn hôm nay không thể ở trong quá khứ. Vui lòng chọn giờ sau thời điểm hiện tại.";
+          err.hidden = false;
+        }
+        return;
+      }
     }
 
     const booking = {
@@ -251,8 +334,10 @@ function setupBooking() {
       note: form.note.value.trim(),
     };
     localStorage.setItem(BOOKING_KEY, JSON.stringify(booking));
-    ok.textContent = `Đã lưu chỗ cho ${name} · ${date} lúc ${time} · ${booking.guests} khách. Đưa tên này khi tới quán.`;
-    ok.hidden = false;
+    if (ok) {
+      ok.textContent = `Đã lưu chỗ cho ${name} · ${date} lúc ${time} · ${booking.guests} khách. Đưa tên này khi tới quán.`;
+      ok.hidden = false;
+    }
     toast("Đã lưu đặt bàn trên máy này");
   });
 }
@@ -272,38 +357,50 @@ document.addEventListener("DOMContentLoaded", () => {
       changeQty(e.target.closest("[data-dec]").dataset.dec, -1);
   });
 
-  // FIX: đóng drawer giỏ hàng và menu mobile bằng phím Escape (chuẩn UX cho overlay)
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
-    if ($("#cart-drawer").classList.contains("is-open")) setCartOpen(false);
+    const drawer = $("#cart-drawer");
+    if (drawer && drawer.classList.contains("is-open")) setCartOpen(false);
     const nav = $("#main-nav");
-    if (nav.classList.contains("is-open")) {
+    const toggle = $(".nav-toggle");
+    if (nav && nav.classList.contains("is-open")) {
       nav.classList.remove("is-open");
-      $(".nav-toggle").setAttribute("aria-expanded", "false");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
       document.body.classList.toggle(
         "no-scroll",
-        $("#cart-drawer").classList.contains("is-open"),
+        drawer ? drawer.classList.contains("is-open") : false,
       );
     }
   });
 
-  $(".cart-btn").addEventListener("click", () => setCartOpen(true));
-  $(".cart-close").addEventListener("click", () => setCartOpen(false));
-  $("#cart-overlay").addEventListener("click", () => setCartOpen(false));
+  const cartBtn = $(".cart-btn");
+  if (cartBtn) cartBtn.addEventListener("click", () => setCartOpen(true));
 
-  $("#cart-clear").addEventListener("click", () => {
-    saveCart([]);
-    renderCart();
-    toast("Đã xóa giỏ hàng");
-  });
+  const cartClose = $(".cart-close");
+  if (cartClose) cartClose.addEventListener("click", () => setCartOpen(false));
 
-  $("#cart-checkout").addEventListener("click", () => {
-    const cart = loadCart();
-    if (!cart.length) {
-      toast("Giỏ hàng đang trống");
-      return;
-    }
-    toast("Đơn đã ghi nhớ — gọi món theo giỏ khi tới quán");
-    setCartOpen(false);
-  });
+  const overlay = $("#cart-overlay");
+  if (overlay) overlay.addEventListener("click", () => setCartOpen(false));
+
+  const cartClear = $("#cart-clear");
+  if (cartClear) {
+    cartClear.addEventListener("click", () => {
+      saveCart([]);
+      renderCart();
+      toast("Đã xóa giỏ hàng");
+    });
+  }
+
+  const cartCheckout = $("#cart-checkout");
+  if (cartCheckout) {
+    cartCheckout.addEventListener("click", () => {
+      const cart = loadCart();
+      if (!cart.length) {
+        toast("Giỏ hàng đang trống");
+        return;
+      }
+      toast("Đơn đã ghi nhớ — gọi món theo giỏ khi tới quán");
+      setCartOpen(false);
+    });
+  }
 });

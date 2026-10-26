@@ -55,13 +55,14 @@ a {
 .skip-link {
   position: absolute;
   left: 12px;
-  top: -40px;
+  top: -120px;
   z-index: 300;
   background: var(--mau-vang);
   color: var(--mau-toi);
   padding: 8px 14px;
   border-radius: 8px;
   font-weight: 700;
+  transition: top 0.2s ease;
 }
 
 .skip-link:focus {
