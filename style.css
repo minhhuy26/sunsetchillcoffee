@@ -1258,26 +1258,38 @@ cite span {
    Booking Section (#dat-ban)
    ============================================================ */
 .form-layout {
-  align-items: stretch;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
 }
 
 .form-layout h2 {
   font-family: var(--font-heading);
-  font-size: clamp(30px, 4vw, 38px);
+  font-size: clamp(28px, 4vw, 36px);
   margin-bottom: 14px;
   color: var(--mau-toi);
   line-height: 1.25;
 }
 
-.form-layout > div {
+.form-info-col,
+.form-layout > div:first-child {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.form-layout form {
-  flex: 1.1;
+.form-card-col {
+  flex: 1.15;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.form-layout form,
+.form-card-col form {
+  width: 100%;
   display: grid;
   gap: 18px;
   background: var(--mau-nen-card);
@@ -1291,21 +1303,72 @@ cite span {
   margin-top: 24px;
   list-style: none;
   display: grid;
-  gap: 12px;
+  gap: 14px;
+  padding: 0;
 }
 
 .form-tips li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+  padding-left: 34px;
   font-size: 14.5px;
-  color: var(--mau-chu-nhat);
+  color: var(--mau-chu);
+  line-height: 1.6;
 }
 
 .form-tips li::before {
   content: "✓";
-  color: var(--mau-vang-hover);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.12);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
   font-weight: 800;
+}
+
+.booking-hotline-card {
+  margin-top: 28px;
+  padding: 20px 22px;
+  background: #fff5eb;
+  border-radius: 12px;
+  border: 1px solid #ebd9c8;
+}
+
+.preorder-callout-card {
+  background: linear-gradient(135deg, rgba(212, 154, 61, 0.12) 0%, rgba(138, 98, 48, 0.06) 100%);
+  border: 1px solid rgba(212, 154, 61, 0.35);
+  border-radius: var(--bo-goc);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.92rem;
+  color: var(--mau-chu);
+  line-height: 1.6;
+}
+
+.preorder-callout-card strong {
+  color: #8a6230;
+  font-size: 0.96rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preorder-callout-card a {
+  color: #8a6230;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.preorder-callout-card a:hover {
+  color: var(--mau-cam);
 }
 
 label {
@@ -1940,8 +2003,9 @@ address.thong-tin {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   flex-wrap: wrap;
   gap: 16px;
   font-size: 13.5px;
