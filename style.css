@@ -1893,7 +1893,7 @@ address.thong-tin {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1.2fr 1.2fr 1.6fr;
+  grid-template-columns: 2fr 1.1fr 1.1fr 1.8fr;
   gap: 40px;
   margin-bottom: 48px;
   text-align: left;
@@ -1967,22 +1967,23 @@ address.thong-tin {
 .footer-social {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin-top: 6px;
 }
 
 .footer-social a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  gap: 7px;
+  font-size: 12.5px;
   font-weight: 600;
   color: #e5c38e;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(212, 154, 61, 0.3);
-  padding: 7px 14px;
+  padding: 6px 12px;
   border-radius: var(--bo-goc-full);
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .footer-social a:hover {
@@ -1994,9 +1995,10 @@ address.thong-tin {
 }
 
 .footer-social a svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   fill: currentColor;
+  flex-shrink: 0;
 }
 
 .footer-bottom {
