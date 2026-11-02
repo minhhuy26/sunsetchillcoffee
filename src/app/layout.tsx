@@ -10,6 +10,8 @@ import BackToTop from '@/components/BackToTop';
 import { CartBookingProvider } from '@/context/CartBookingContext';
 import Script from 'next/script';
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-0YKQJ3JL4B';
+
 const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
 const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -179,7 +181,7 @@ export default function RootLayout({
       <body>
         {/* Google Analytics 4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SBS9KBZ3FB"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -187,7 +189,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-SBS9KBZ3FB');
+            gtag('config', '${gaId}');
           `}
         </Script>
 
