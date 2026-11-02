@@ -8,14 +8,13 @@ import Toast from '@/components/Toast';
 import MobileQuickActions from '@/components/MobileQuickActions';
 import BackToTop from '@/components/BackToTop';
 import { CartBookingProvider } from '@/context/CartBookingContext';
-import Script from 'next/script';
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-0YKQJ3JL4B';
 
 const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
 const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (vercelDomain ? `https://${vercelDomain}` : 'https://minhhuy26.github.io/sunsetchillcoffee')
+  (vercelDomain ? `https://${vercelDomain}` : 'https://sunsetchillcoffee.vercel.app')
 ).replace(/\/+$/, '');
 
 export const metadata: Metadata = {
@@ -177,22 +176,24 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* Google tag (gtag.js) - Google Analytics 4 */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
+            `,
+          }}
+        />
       </head>
       <body>
-        {/* Google Analytics 4 */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gaId}');
-          `}
-        </Script>
-
         <CartBookingProvider>
           <Header />
           {children}
