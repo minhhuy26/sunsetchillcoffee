@@ -10,7 +10,11 @@ import BackToTop from '@/components/BackToTop';
 import { CartBookingProvider } from '@/context/CartBookingContext';
 import Script from 'next/script';
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://minhhuy26.github.io/sunsetchillcoffee').replace(/\/+$/, '');
+const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (vercelDomain ? `https://${vercelDomain}` : 'https://minhhuy26.github.io/sunsetchillcoffee')
+).replace(/\/+$/, '');
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
