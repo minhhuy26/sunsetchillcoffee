@@ -10,7 +10,7 @@ import BackToTop from '@/components/BackToTop';
 import { CartBookingProvider } from '@/context/CartBookingContext';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-0YKQJ3JL4B';
+const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-SBS9KBZ3FB';
 
 const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
 const siteUrl = (
@@ -190,6 +190,12 @@ export default function RootLayout({
           <BackToTop />
         </CartBookingProvider>
         <GoogleAnalytics gaId={gaId} />
+        <script
+          id="ga4-linked-stream"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('config', 'G-0YKQJ3JL4B');`,
+          }}
+        />
       </body>
     </html>
   );
