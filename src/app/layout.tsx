@@ -10,8 +10,7 @@ import BackToTop from '@/components/BackToTop';
 import { CartBookingProvider } from '@/context/CartBookingContext';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const rawGaId = process.env.NEXT_PUBLIC_GA_ID || 'G-OYKQJ3JL4B';
-const gaId = rawGaId.replace(/^G-0/, 'G-O');
+const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-0YKQJ3JL4B';
 
 const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
 const siteUrl = (
