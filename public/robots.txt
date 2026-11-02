@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minhhuy26.github.io/sunsetchillcoffee/sitemap.xml

@@ -1,0 +1,24 @@
+{
+  "name": "sunset-chill-cafe",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Sunset Chill Café Đà Lạt - Next.js Framework",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:export": "node scripts/export.js",
+    "generate:sitemap": "node scripts/generate_sitemap.js"
+  },
+  "dependencies": {
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
