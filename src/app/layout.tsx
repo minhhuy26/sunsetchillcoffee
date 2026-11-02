@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: '%s | Sunset Chill Café Đà Lạt',
   },
   description:
-    'Sunset Chill Café - Quán cà phê chill Đà Lạt tại 123 Hoàng Diệu. Thưởng thức cà phê rang mộc nguyên chất, cafe kem muối béo ngậy, bạc sỉu, cold brew cam, cacao nóng và bánh tiramisu ly trong không gian cafe sân vườn mộc mạc ngắm hoàng hôn yên tĩnh.',
+    'Sunset Chill Café - Quán cà phê chill Đà Lạt tại 123 Hoàng Diệu. Thưởng thức cà phê rang mộc nguyên chất, cafe sáng, cafe kem muối béo ngậy, bạc sỉu, cold brew cam, cacao nóng và bánh tiramisu ly trong không gian cafe sân vườn mộc mạc ngắm hoàng hôn yên tĩnh.',
   keywords: [
     'cà phê rang mộc là gì',
     'arabica cầu đất',
@@ -50,6 +50,8 @@ export const metadata: Metadata = {
     'cafe cầu đất',
     'cafe ngắm hoàng hôn',
     'cafe đọc sách',
+    'cafe sáng',
+    'cafe sáng đà lạt',
   ],
   authors: [{ name: 'Sunset Chill Café' }],
   robots: {
@@ -109,12 +111,13 @@ const jsonLd = {
     'https://www.facebook.com/share/p/1CF3pR17gj/',
     'https://www.threads.com/share/BAcEboWWmG/',
     'https://medium.com/@nguyenhuy05042006/qu%C3%A1n-c%C3%A0-ph%C3%AA-%C4%91%C3%A0-l%E1%BA%A1t-e46987859f9e',
-    'https://www.tumblr.com/quoctien14/831870553003540480/sunset-chill-caf%C3%A9-%C4%91%C3%A0-l%E1%BA%A1t-n%C6%A1i-%C4%91%E1%BB%83-b%E1%BA%A1n-ch%E1%BA%ADm-l%E1%BA%A1i?source=share',
+    'https://mastodon.social/@quoctien/117544480176494241',
     'https://lnkd.in/p/gsmMDcGU',
     'https://linktr.ee/nguyenhuy2k6',
     'https://qr.ae/pFzAcF',
     'https://x.com/HuyNguyenkd4y/status/2116026858051682460?a=fVykg8zJKZRiFVK0fts&s=20',
     'https://ext-7028725.livejournal.com/412.html',
+    'https://youtube.com/post/UgkxCmnXMFe84EaCRhbEG0snkxtiR9ghuHLa?si=TeKh0ljgsomgOAof',
   ],
   address: {
     '@type': 'PostalAddress',
