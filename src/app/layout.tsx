@@ -8,6 +8,7 @@ import Toast from '@/components/Toast';
 import MobileQuickActions from '@/components/MobileQuickActions';
 import BackToTop from '@/components/BackToTop';
 import { CartBookingProvider } from '@/context/CartBookingContext';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-0YKQJ3JL4B';
 
@@ -176,22 +177,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-
-        {/* Google tag (gtag.js) - Google Analytics 4 */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${gaId}');
-            `,
-          }}
-        />
       </head>
       <body>
         <CartBookingProvider>
@@ -204,6 +189,7 @@ export default function RootLayout({
           <MobileQuickActions />
           <BackToTop />
         </CartBookingProvider>
+        <GoogleAnalytics gaId={gaId} />
       </body>
     </html>
   );
