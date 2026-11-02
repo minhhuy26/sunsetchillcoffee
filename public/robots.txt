@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://minhhuy26.github.io/sunsetchillcoffee/sitemap.xml
+Sitemap: https://minhhuy26.github.io/sunsetchillcoffee/sitemap_index.xml
