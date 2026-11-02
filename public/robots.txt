@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://minhhuy26.github.io/sunsetchillcoffee/sitemap.xml
-Sitemap: https://minhhuy26.github.io/sunsetchillcoffee/sitemap_index.xml
+Sitemap: https://sunsetchillcoffee.vercel.app/sitemap.xml
+Sitemap: https://sunsetchillcoffee.vercel.app/sitemap_index.xml

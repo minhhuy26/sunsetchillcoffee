@@ -20,7 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
 
   const baseUrl = (
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://minhhuy26.github.io/sunsetchillcoffee'
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://sunsetchillcoffee.vercel.app'))
   ).replace(/\/+$/, '');
   const url = `${baseUrl}/blog/${slug}`;
 
@@ -64,8 +65,75 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
+  const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (vercelDomain ? `https://${vercelDomain}` : 'https://sunsetchillcoffee.vercel.app')
+  ).replace(/\/+$/, '');
+  const url = `${baseUrl}/blog/${slug}`;
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    image: [post.image],
+    datePublished: '2026-10-01T08:00:00+07:00',
+    dateModified: '2026-11-02T12:00:00+07:00',
+    author: {
+      '@type': 'Person',
+      name: post.author || 'Sunset Chill Barista Team',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Sunset Chill Café',
+      url: baseUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/favicon.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Trang chủ',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Cẩm nang',
+        item: `${baseUrl}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.heading,
+        item: url,
+      },
+    ],
+  };
+
   return (
     <main id="noi-dung">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* We inject the exact article content extracted from original HTML */}
       <div
         dangerouslySetInnerHTML={{ __html: post.content }}
