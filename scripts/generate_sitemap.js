@@ -20,7 +20,7 @@ const blogSlugs = [
 const today = new Date().toISOString().split('T')[0];
 
 const routes = [
-  { url: '', priority: '1.0', changefreq: 'daily' },
+  { url: '/', priority: '1.0', changefreq: 'daily' },
   { url: '/gioi-thieu', priority: '0.9', changefreq: 'weekly' },
   { url: '/mon-noi-bat', priority: '0.9', changefreq: 'weekly' },
   { url: '/menu', priority: '0.9', changefreq: 'weekly' },
@@ -38,7 +38,7 @@ const routes = [
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.map(r => `  <url>
-    <loc>${cleanBase}${r.url}</loc>
+    <loc>${cleanBase}${r.url === '/' ? '/' : r.url}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>
@@ -47,4 +47,4 @@ ${routes.map(r => `  <url>
 `;
 
 fs.writeFileSync(path.join(__dirname, '../public/sitemap.xml'), xml.trim() + '\n', 'utf8');
-console.log('Successfully generated public/sitemap.xml for base:', cleanBase);
+console.log('Successfully regenerated public/sitemap.xml');
