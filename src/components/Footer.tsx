@@ -56,7 +56,7 @@ export default function Footer() {
             </p>
             <div className="footer-social" aria-label="Mạng xã hội Sunset Chill">
               <a
-                href="https://www.facebook.com/share/p/1C7Vn1seqF/"
+                href="https://www.facebook.com/share/p/1dhv2bsEUn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Facebook"
@@ -67,7 +67,7 @@ export default function Footer() {
                 <span>Facebook</span>
               </a>
               <a
-                href="https://www.threads.com/share/BAOXVRufgp/"
+                href="https://www.threads.com/share/BBX5GR3A96"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Threads"
@@ -78,18 +78,18 @@ export default function Footer() {
                 <span>Threads</span>
               </a>
               <a
-                href="https://medium.com/@nguyenhuy05042006/qu%C3%A1n-c%C3%A0-ph%C3%AA-%C4%91%C3%A0-l%E1%BA%A1t-e46987859f9e?sharedUserId=nguyenhuy05042006"
+                href="https://sunsetchillcoffee.blogspot.com/2026/11/bat-tron-khoanh-khac-hoang-hon-tai.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Medium"
+                title="Blogspot"
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                  <path d="M21.976 24H2.026C.9 24 0 23.1 0 21.976V2.026C0 .9.9 0 2.025 0H22.05C23.1 0 24 .9 24 2.025v19.95C24 23.1 23.1 24 21.976 24M12 3.975H9A5.025 5.025 0 0 0 3.975 9v6A5.025 5.025 0 0 0 9 20.024h6A5.025 5.025 0 0 0 20.024 15v-3.975c0-.6-.45-1.05-1.05-1.05H18a.995.995 0 0 1-.976-.976A5.025 5.025 0 0 0 12 3.973zm3.074 12H9c-.525 0-.975-.45-.975-.975s.45-.976.975-.976h6.074c.526 0 .977.45.977.976s-.45.976-.975.976zm-2.55-7.95c.527 0 .976.45.976.975s-.45.975-.975.975h-3.6c-.525 0-.976-.45-.976-.975s.45-.975.975-.975z" />
                 </svg>
-                <span>Medium</span>
+                <span>Blogspot</span>
               </a>
               <a
-                href="https://mastodon.social/@HuyNguyen123/117547034524861856"
+                href="https://mastodon.social/@quoctien/117550056192785011"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Mastodon"
@@ -100,7 +100,7 @@ export default function Footer() {
                 <span>Mastodon</span>
               </a>
               <a
-                href="https://lnkd.in/p/gP38E6Tt"
+                href="https://lnkd.in/p/eJyDm-7d"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
@@ -111,7 +111,7 @@ export default function Footer() {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://linktr.ee/nguyenhuy2k6"
+                href="https://linktr.ee/quoctien14"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Linktree"
@@ -122,7 +122,7 @@ export default function Footer() {
                 <span>Linktree</span>
               </a>
               <a
-                href="https://qr.ae/pFz059"
+                href="https://qr.ae/pF6pY8"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Quora"
@@ -133,7 +133,7 @@ export default function Footer() {
                 <span>Quora</span>
               </a>
               <a
-                href="https://x.com/HuyNguyenkd4y/status/2117225073191031204?a=pjXHXLgsJSdAir4m4yw&s=20"
+                href="https://x.com/HuyNguyenkd4y/status/2117441265256349814?a=eT8aZNPb0Y61oIb7xAw&s=20"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="X (Twitter)"
@@ -144,7 +144,7 @@ export default function Footer() {
                 <span>X</span>
               </a>
               <a
-                href="https://ext-7029818.livejournal.com/402.html"
+                href="https://ext-7028725.livejournal.com/674.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LiveJournal"
@@ -155,7 +155,7 @@ export default function Footer() {
                 <span>LiveJournal</span>
               </a>
               <a
-                href="https://youtube.com/post/UgkxCmnXMFe84EaCRhbEG0snkxtiR9ghuHLa?si=QzhwOYgaqGP2aaRw"
+                href="https://youtube.com/post/UgkxiFWndOImftqg5koI_Q19b_jB7EjOSxU-?si=f5x03Tn122Q7h_Vo"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="YouTube"
