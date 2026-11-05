@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import CartDrawer from '@/components/CartDrawer';
-import PreorderModal from '@/components/PreorderModal';
 import Toast from '@/components/Toast';
 import MobileQuickActions from '@/components/MobileQuickActions';
 import BackToTop from '@/components/BackToTop';
 import { CartBookingProvider } from '@/context/CartBookingContext';
+
+const CartDrawer = dynamic(() => import('@/components/CartDrawer'));
+const PreorderModal = dynamic(() => import('@/components/PreorderModal'));
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-SBS9KBZ3FB';
 
