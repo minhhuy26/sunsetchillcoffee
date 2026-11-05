@@ -666,6 +666,7 @@ section {
   color: #ffffff;
 }
 
+#hero picture,
 .hero-bg {
   position: absolute;
   inset: 0;

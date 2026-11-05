@@ -168,30 +168,31 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />
-        {/* Preload Hero LCP image */}
+        {/* Preload Hero LCP image (Media-query targeted for mobile speed) */}
         <link
           rel="preload"
           as="image"
           href="/images/hero-bg-mobile.webp"
-          imageSrcSet="/images/hero-bg-mobile.webp 600w, /images/hero-bg.webp 1200w"
-          imageSizes="100vw"
+          media="(max-width: 768px)"
           fetchPriority="high"
         />
-        {/* Non-render-blocking Google Font loading */}
         <link
           rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+          as="image"
+          href="/images/hero-bg.webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
         />
+        {/* Non-render-blocking optimized Google Fonts loaded on idle/load */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap';document.head.appendChild(l);})();",
+            __html: "(function(){function loadFonts(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap';document.head.appendChild(l);}if('requestIdleCallback' in window){requestIdleCallback(loadFonts,{timeout:2000});}else{window.addEventListener('load',loadFonts,{once:true});}})();",
           }}
         />
         <noscript>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap"
           />
         </noscript>
         <script
