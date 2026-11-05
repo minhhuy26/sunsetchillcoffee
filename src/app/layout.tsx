@@ -186,16 +186,7 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
           rel="stylesheet"
-          media="print"
-          // @ts-ignore
-          onLoad="this.media='all'"
         />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -216,11 +207,9 @@ function loadGtag(){
   s.async = true;
   document.head.appendChild(s);
 }
-if ('requestIdleCallback' in window) {
-  requestIdleCallback(loadGtag, { timeout: 2000 });
-} else {
-  window.addEventListener('load', loadGtag);
-}`,
+var events = ['scroll', 'touchstart', 'mousemove', 'click', 'keydown'];
+events.forEach(function(e) { window.addEventListener(e, loadGtag, { passive: true, once: true }); });
+setTimeout(loadGtag, 7000);`,
           }}
         />
       </head>
