@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://minhhuy26.github.io/sunsetchillcoffee';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://sunsetchillcoffee.vercel.app';
 const cleanBase = BASE_URL.replace(/\/+$/, '');
 
 const blogSlugs = [

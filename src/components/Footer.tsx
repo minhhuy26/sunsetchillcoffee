@@ -133,7 +133,7 @@ export default function Footer() {
                 <span>Pinterest</span>
               </a>
               <a
-                href="https://qr.ae/pF6kwN"
+                href="https://qr.ae/pF6pY8"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Quora"

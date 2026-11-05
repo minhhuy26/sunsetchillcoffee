@@ -122,7 +122,7 @@ const jsonLd = {
     'https://www.threads.com/share/MGmr6WSQH',
     'https://mastodon.social/@HuyNguyen123/117547034524861856',
     'https://pin.it/7JDfZyyLK',
-    'https://qr.ae/pF6kwN',
+    'https://qr.ae/pF6pY8',
     'https://www.behance.net/nguynminhhuy5',
     'https://sunsetchillcoffee.blogspot.com/2026/11/bat-tron-khoanh-khac-hoang-hon-tai_01299051472.html',
   ],

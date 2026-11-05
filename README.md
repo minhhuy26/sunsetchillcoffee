@@ -30,7 +30,7 @@ Website chính thức của **Sunset Chill Café** (123 Hoàng Diệu, P.5, TP. 
 ## 📍 HƯỚNG DẪN NẠP SITEMAP TRÊN GOOGLE SEARCH CONSOLE
 
 ### 1. Chuẩn bị URL chính xác
-File `sitemap.xml` của bạn được cấu hình tự động nhận diện theo biến môi trường `NEXT_PUBLIC_SITE_URL` (mặc định trong `.env.local` là `https://minhhuy26.github.io/sunsetchillcoffee`).
+File `sitemap.xml` của bạn được cấu hình tự động nhận diện theo biến môi trường `NEXT_PUBLIC_SITE_URL` (mặc định trong `.env.local` là `https://sunsetchillcoffee.vercel.app`).
 
 > **Lưu ý quan trọng**: Nếu bạn triển khai trên tên miền riêng (ví dụ: `https://sunsetchill.cafe` hoặc Vercel `https://sunsetchillcoffee.vercel.app`), hãy mở file `.env.local` và sửa:
 > ```env
@@ -45,13 +45,13 @@ File `sitemap.xml` của bạn được cấu hình tự động nhận diện t
 1. **Truy cập Google Search Console**:
    - Mở [https://search.google.com/search-console/](https://search.google.com/search-console/).
 2. **Chọn đúng Thuộc tính (Property)**:
-   - Hãy chắc chắn bạn đang chọn đúng thuộc tính website đã thêm (ví dụ `https://minhhuy26.github.io/sunsetchillcoffee/` hoặc domain của bạn).
+   - Hãy chắc chắn bạn đang chọn đúng thuộc tính website đã thêm (ví dụ `https://sunsetchillcoffee.vercel.app/` hoặc domain của bạn).
 3. **Xác minh quyền sở hữu (nếu chưa xác minh)**:
    - Google Search Console cung cấp file xác minh: `googlebd48b11684e0e217.html` hoặc Thẻ HTML (HTML tag).
    - Cả 2 phương thức này **đều đã được tích hợp sẵn** trong thư mục `public/` và file layout của website. Bạn chỉ cần bấm nút **"Xác minh" (Verify)** trên GSC là thành công 100%.
 4. **Gửi Sơ đồ trang web (Sitemap)**:
    - Ở thanh menu bên trái, chọn mục **"Sơ đồ trang web" (Sitemaps)** (dưới phần Lập chỉ mục / Indexing).
-   - Trong ô **"Thêm sơ đồ trang web mới" (Add a new sitemap)**, bạn sẽ thấy tiền tố URL website của bạn đã hiển thị sẵn (ví dụ: `https://minhhuy26.github.io/sunsetchillcoffee/`).
+   - Trong ô **"Thêm sơ đồ trang web mới" (Add a new sitemap)**, bạn sẽ thấy tiền tố URL website của bạn đã hiển thị sẵn (ví dụ: `https://sunsetchillcoffee.vercel.app/`).
    - Tại ô nhập liệu phía sau dấu gạch chéo `/`, bạn chỉ cần gõ đúng chữ:
      ```
      sitemap.xml

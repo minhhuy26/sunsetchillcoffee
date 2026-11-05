@@ -1,13 +1,9 @@
-const isExport = process.env.NEXT_EXPORT === 'true' || process.env.GITHUB_ACTIONS === 'true';
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH !== undefined 
-  ? process.env.NEXT_PUBLIC_BASE_PATH 
-  : (process.env.GITHUB_ACTIONS === 'true' ? '/sunsetchillcoffee' : '');
+const isExport = process.env.NEXT_EXPORT === 'true';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   output: isExport ? 'export' : undefined,
-  basePath: basePath,
   trailingSlash: false,
   images: {
     unoptimized: isExport,
