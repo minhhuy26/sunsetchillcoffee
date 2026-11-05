@@ -185,15 +185,10 @@ export default function RootLayout({
           media="(min-width: 769px)"
           fetchPriority="high"
         />
-        {/* Non-render-blocking optimized Google Fonts with display=optional to prevent late LCP font swaps */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=optional"
-        />
+        {/* Non-render-blocking optimized Google Fonts loaded during browser idle */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=optional';document.head.appendChild(l);})();",
+            __html: "(function(){function loadFonts(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=optional';document.head.appendChild(l);}if('requestIdleCallback' in window){requestIdleCallback(loadFonts,{timeout:3000});}else{window.addEventListener('load',loadFonts,{once:true});}})();",
           }}
         />
         <noscript>
