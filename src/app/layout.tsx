@@ -122,7 +122,7 @@ const jsonLd = {
     'https://pin.it/7JDfZyyLK',
     'https://qr.ae/pF6kwN',
     'https://www.behance.net/nguynminhhuy5',
-    'https://sunsetchillcoffee.blogspot.com/2026/11/bat-tron-khoanh-khac-hoang-hon-tai.html',
+    'https://sunsetchillcoffee.blogspot.com/2026/11/bat-tron-khoanh-khac-hoang-hon-tai_01299051472.html',
   ],
   address: {
     '@type': 'PostalAddress',
@@ -168,26 +168,59 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />
+        {/* Preload Hero LCP image */}
+        <link
+          rel="preload"
+          as="image"
+          href="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=75"
+          imageSrcSet="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=75 600w, https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=75 1000w, https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1400&auto=format&fit=crop&q=75 1400w"
+          imageSizes="100vw"
+          fetchPriority="high"
+        />
+        {/* Non-render-blocking font loading */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+          media="print"
+          // @ts-ignore
+          onLoad="this.media='all'"
         />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-              {/* Google tag (gtag.js) */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        />
+        {/* Google tag (gtag.js) - loaded on idle to eliminate TBT and CPU blocking */}
         <script
           id="google-tag-init"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${gaId}');`,
+gtag('config', '${gaId}');
+function loadGtag(){
+  if (window._gtagLoaded) return;
+  window._gtagLoaded = true;
+  var s = document.createElement('script');
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=${gaId}';
+  s.async = true;
+  document.head.appendChild(s);
+}
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(loadGtag, { timeout: 2000 });
+} else {
+  window.addEventListener('load', loadGtag);
+}`,
           }}
         />
       </head>

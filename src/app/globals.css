@@ -2061,24 +2061,32 @@ address.thong-tin {
   right: 28px;
   width: 44px;
   height: 44px;
+  padding: 0 !important;
+  margin: 0 !important;
   background: var(--mau-vang);
   color: var(--mau-toi);
   border-radius: 50%;
-  display: grid;
-  place-items: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   z-index: 150;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transform: translateY(16px);
   transition: all 0.25s ease;
-  border: 0;
+  border: 0 !important;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 #back-to-top.is-show, .back-to-top.is-show {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -2089,8 +2097,11 @@ address.thong-tin {
 }
 
 #back-to-top svg, .back-to-top svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  display: block;
+  margin: auto;
+  flex-shrink: 0;
 }
 
 /* Mobile Quick Contact Bar */

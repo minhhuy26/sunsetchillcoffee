@@ -24,7 +24,6 @@ export default function BackToTop() {
       type="button"
       aria-label="Cuộn lên đầu trang"
       onClick={scrollToTop}
-      style={{ display: visible ? 'flex' : 'none' }}
     >
       <svg
         viewBox="0 0 24 24"

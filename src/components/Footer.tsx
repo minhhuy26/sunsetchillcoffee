@@ -155,7 +155,7 @@ export default function Footer() {
                 <span>Behance</span>
               </a>
               <a
-                href="https://sunsetchillcoffee.blogspot.com/2026/11/bat-tron-khoanh-khac-hoang-hon-tai.html"
+                href="https://sunsetchillcoffee.blogspot.com/2026/11/bat-tron-khoanh-khac-hoang-hon-tai_01299051472.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Blogspot"
