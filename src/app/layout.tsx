@@ -172,8 +172,8 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=75"
-          imageSrcSet="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=75 600w, https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=75 1000w, https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1400&auto=format&fit=crop&q=75 1400w"
+          href="/images/hero-bg-mobile.webp"
+          imageSrcSet="/images/hero-bg-mobile.webp 600w, /images/hero-bg.webp 1200w"
           imageSizes="100vw"
           fetchPriority="high"
         />
