@@ -54,7 +54,7 @@ export default function Footer() {
             <p style={{ fontSize: '13.5px', color: '#baa495', marginBottom: '14px' }}>
               Theo dõi chúng mình trên các nền tảng chính thức:
             </p>
-                        <div className="footer-social" aria-label="Mạng xã hội Sunset Chill">
+                        <div className="footer-social" role="group" aria-label="Mạng xã hội Sunset Chill">
               <a
                 href="https://www.facebook.com/profile.php?id=61595926154194"
                 target="_blank"

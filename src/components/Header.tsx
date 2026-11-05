@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header className="site-header">
-      <Link href="/" className="logo" aria-label="Sunset Chill Café - Về trang chủ">
+      <Link href="/" className="logo" aria-label="Sunset Chill Café Đà Lạt Hoàng Diệu - Về trang chủ">
         <svg
           className="logo-icon"
           viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ export default function Header() {
         className="booking-btn"
         id="booking-btn"
         type="button"
-        aria-label="Bàn đã đặt"
+        aria-label={`Bàn đặt (${hasBooking ? 1 : 0})`}
         title="Xem bàn bạn đã đặt"
         onClick={() => openDrawer('booking')}
       >
@@ -120,7 +120,7 @@ export default function Header() {
       <button
         className="cart-btn"
         type="button"
-        aria-label="Giỏ hàng"
+        aria-label={`Giỏ hàng (${cartCount})`}
         onClick={() => openDrawer('cart')}
       >
         <svg

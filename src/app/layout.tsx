@@ -165,6 +165,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2c1a0e" />
         <meta name="geo.region" content="VN-DL" />
         <meta name="geo.placename" content="Đà Lạt" />
+        <link rel="ard" href="/.well-known/ard.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />

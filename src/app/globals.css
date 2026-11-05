@@ -200,7 +200,7 @@ button {
 
 .btn-outline {
   background: transparent;
-  color: var(--mau-vang);
+  color: #8c5315;
   border: 1.5px solid var(--mau-vang);
   box-shadow: none;
 }

@@ -1,0 +1,20 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:sunsetchillcoffee.vercel.app:site:info",
+      "displayName": "Sunset Chill Café Đà Lạt",
+      "type": "text/html",
+      "url": "https://sunsetchillcoffee.vercel.app/",
+      "description": "Quán cà phê rang mộc nguyên chất view hoàng hôn tại Đà Lạt. Phục vụ thực đơn, đặt bàn trực tuyến và chỉ đường.",
+      "version": "1.0.0",
+      "tags": ["cafe", "dalat", "coffee", "restaurant", "booking"],
+      "representativeQueries": [
+        "quán cà phê yên tĩnh tại đà lạt",
+        "menu và bảng giá sunset chill cafe",
+        "đặt bàn quán cà phê sunset chill đà lạt",
+        "địa chỉ sunset chill cafe hoàng diệu đà lạt"
+      ]
+    }
+  ]
+}
