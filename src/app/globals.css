@@ -3087,3 +3087,22 @@ img[loading="lazy"] {
   padding: 8px 16px;
   font-size: 13px;
 }
+
+/* Performance optimization for mobile rendering */
+@media (max-width: 768px) {
+  .hero-content {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-highlights .highlight-item {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #ffffff !important;
+  }
+}
+
+#cam-nhan, #faq-section, .site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
