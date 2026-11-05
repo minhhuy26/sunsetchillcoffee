@@ -250,10 +250,47 @@ export function CartBookingProvider({ children }: { children: React.ReactNode })
     setIsPreorderSuccess(false);
   }, []);
 
-  // Global click delegate for [data-add] or [data-name] elements
+  // Global click delegate for [data-add], .filter-btn, and [data-filter] elements
   useEffect(() => {
+    // Setup date min for static booking date inputs if present
+    const dateInput = document.querySelector('#booking-date, input[name="date"]') as HTMLInputElement;
+    if (dateInput && !dateInput.min) {
+      dateInput.min = new Date().toISOString().split('T')[0];
+    }
+
     const handleDocumentClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      if (!target) return;
+
+      // Category filter buttons (.filter-btn or [data-filter])
+      const filterBtn = target.closest('.filter-btn, [data-filter]') as HTMLElement;
+      if (filterBtn) {
+        const filterVal = filterBtn.getAttribute('data-filter');
+        if (filterVal) {
+          e.preventDefault();
+          const container = filterBtn.closest('.section-card, section, main') || document;
+          const allBtns = container.querySelectorAll('.filter-btn, [data-filter]');
+          allBtns.forEach((btn) => {
+            btn.classList.remove('is-active');
+            btn.setAttribute('aria-pressed', 'false');
+          });
+          filterBtn.classList.add('is-active');
+          filterBtn.setAttribute('aria-pressed', 'true');
+
+          const categories = container.querySelectorAll('.danh-muc');
+          categories.forEach((box) => {
+            const cat = (box as HTMLElement).getAttribute('data-category');
+            if (filterVal === 'all' || cat === filterVal) {
+              box.classList.remove('is-hidden');
+            } else {
+              box.classList.add('is-hidden');
+            }
+          });
+          return;
+        }
+      }
+
+      // Add to cart buttons ([data-add])
       const addBtn = target.closest('[data-add]') as HTMLElement;
       if (addBtn) {
         const name = addBtn.getAttribute('data-name');
@@ -266,9 +303,69 @@ export function CartBookingProvider({ children }: { children: React.ReactNode })
       }
     };
 
+    const handleFormSubmit = (e: SubmitEvent) => {
+      const form = e.target as HTMLFormElement;
+      if (!form || form.id !== 'booking-form') return;
+      if (window.location.pathname === '/dat-ban') return;
+
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = ((fd.get('name') as string) || '').trim();
+      const phone = ((fd.get('phone') as string) || '').trim().replace(/\s+/g, '');
+      const date = (fd.get('date') as string) || '';
+      const time = (fd.get('time') as string) || '';
+      const guests = (fd.get('guests') as string) || '2';
+      const note = ((fd.get('note') as string) || '').trim();
+
+      const err = form.querySelector('#form-error') as HTMLElement;
+      const succ = form.querySelector('#form-success') as HTMLElement;
+      if (err) err.hidden = true;
+      if (succ) succ.hidden = true;
+
+      if (!name || name.length < 2) {
+        if (err) {
+          err.textContent = 'Vui lòng nhập họ tên của bạn (tối thiểu 2 ký tự).';
+          err.hidden = false;
+        }
+        return;
+      }
+      if (!/^0[0-9]{9}$/.test(phone)) {
+        if (err) {
+          err.textContent = 'Số điện thoại không hợp lệ (cần 10 chữ số bắt đầu bằng 0).';
+          err.hidden = false;
+        }
+        return;
+      }
+      if (!date) {
+        if (err) {
+          err.textContent = 'Vui lòng chọn ngày đến.';
+          err.hidden = false;
+        }
+        return;
+      }
+      if (!time) {
+        if (err) {
+          err.textContent = 'Vui lòng chọn giờ hẹn.';
+          err.hidden = false;
+        }
+        return;
+      }
+
+      saveBooking({ name, phone, date, time, guests, note });
+      if (succ) {
+        succ.textContent = 'Đặt bàn thành công! Sunset Chill Café sẽ liên hệ xác nhận sớm nhất.';
+        succ.hidden = false;
+      }
+      form.reset();
+    };
+
     document.addEventListener('click', handleDocumentClick);
-    return () => document.removeEventListener('handleDocumentClick', handleDocumentClick);
-  }, [addToCart]);
+    document.addEventListener('submit', handleFormSubmit);
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+      document.removeEventListener('submit', handleFormSubmit);
+    };
+  }, [addToCart, saveBooking]);
 
   const cartCount = mounted ? cart.reduce((sum, item) => sum + item.qty, 0) : 0;
   const cartTotal = mounted ? cart.reduce((sum, item) => sum + item.qty * item.price, 0) : 0;
